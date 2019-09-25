@@ -6,4 +6,5 @@ jdk:
 before_install:
   - ulimit -a && free -m
   - chmod +x .mvn/*
+  - chmod +x mvnw
   - wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://github.com/codacy/codacy-coverage-reporter/releases/download/6.0.6/codacy-coverage-reporter-6.0.6-assembly.jar"
