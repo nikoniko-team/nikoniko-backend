@@ -4,8 +4,8 @@ SET TIME ZONE 'America/Sao_Paulo';
 -- user
 -- Cria sequence mood_seq
 CREATE SEQUENCE public.user_seq;
-ALTER SEQUENCE public.user_seq
-    OWNER to niko_db_user;
+--ALTER SEQUENCE public.user_seq
+--    OWNER to niko_db_user;
 
 -- Cria tabela user
 CREATE TABLE public."user"
@@ -18,15 +18,15 @@ CREATE TABLE public."user"
     CONSTRAINT user_pkey PRIMARY KEY (id)
 );
 
-ALTER TABLE public."user"
-    OWNER to niko_db_user;
+--ALTER TABLE public."user"
+--    OWNER to niko_db_user;
 
 
 -- mood
 -- Cria sequence mood_seq
 CREATE SEQUENCE public.mood_seq;
-ALTER SEQUENCE public.mood_seq
-    OWNER to niko_db_user;
+--ALTER SEQUENCE public.mood_seq
+--    OWNER to niko_db_user;
 
 -- Cria tabela mood
 CREATE TABLE public.mood
@@ -37,7 +37,7 @@ CREATE TABLE public.mood
     CONSTRAINT mood_pkey PRIMARY KEY (id)
 );
 
-ALTER TABLE public.mood
-    OWNER to niko_db_user;
+--ALTER TABLE public.mood
+--    OWNER to niko_db_user;
 
 

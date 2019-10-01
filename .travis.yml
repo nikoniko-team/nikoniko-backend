@@ -40,8 +40,14 @@ after_failure:
 
 before_deploy:
 
-deploy:
 
+deploy:
+    provider: heroku
+    api_key:
+        secure: "${HEROKU_API_KEY}"
+    app:
+        master: hom-nikoniko-backend
+        production: prod-nikoniko-backend
 
 after_deploy:
 
