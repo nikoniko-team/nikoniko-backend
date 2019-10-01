@@ -1,10 +1,42 @@
 language: java
 jdk:
-  #- oraclejdk8
-  - openjdk8
+    #- oraclejdk8
+    - openjdk8
+
+cache:
+    directories:
+        - ${HOME}/.m2
 
 before_install:
-  - ulimit -a && free -m
-  - chmod +x .mvn/*
-  - chmod +x mvnw
-  - wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://github.com/codacy/codacy-coverage-reporter/releases/download/6.0.6/codacy-coverage-reporter-6.0.6-assembly.jar"
+    - ulimit -a && free -m
+    - chmod +x -R .mvn/*
+    - chmod +x mvnw
+    - wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://github.com/codacy/codacy-coverage-reporter/releases/download/6.0.6/codacy-coverage-reporter-6.0.6-assembly.jar"
+
+install:
+
+
+script:
+    - .mvnw install -B -V
+    - ulimit -a && free -m
+
+before_cache:
+
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
+    - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/site/jacoco/jacoco.xml
+
+after_failure:
+    - echo "FAILURE"
+    - ulimit -a
+    - free -m
+
+before_deploy:
+
+deploy:
+
+
+after_deploy:
+
+after_script:
