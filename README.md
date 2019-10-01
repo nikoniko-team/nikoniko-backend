@@ -8,3 +8,9 @@
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=nikoniko-team_nikoniko-backend)
 
 # nikoniko-backend
+
+# Homologação
+- https://hom-nikoniko-backend.herokuapp.com/api/
+
+# Produção
+- https://prod-nikoniko-backend.herokuapp.com/api/
