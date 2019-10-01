@@ -1,9 +1,6 @@
 package br.com.senac.nikoniko.services;
 
 import br.com.senac.nikoniko.entities.Mood;
-import br.com.senac.nikoniko.entities.Mood;
-import br.com.senac.nikoniko.exception.InexistentMoodException;
-import br.com.senac.nikoniko.repositories.MoodRepository;
 import br.com.senac.nikoniko.repositories.MoodRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

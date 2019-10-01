@@ -1,8 +1,6 @@
 package br.com.senac.nikoniko.services;
 
 import br.com.senac.nikoniko.entities.Mood;
-import br.com.senac.nikoniko.entities.Mood;
-import br.com.senac.nikoniko.exception.InexistentMoodException;
 
 import java.util.List;
 import java.util.Optional;

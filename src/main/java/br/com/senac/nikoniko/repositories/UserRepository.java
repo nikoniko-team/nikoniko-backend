@@ -1,6 +1,5 @@
 package br.com.senac.nikoniko.repositories;
 
-import br.com.senac.nikoniko.entities.Mood;
 import br.com.senac.nikoniko.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
