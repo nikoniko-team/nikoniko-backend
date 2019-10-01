@@ -17,7 +17,7 @@ install:
 
 
 script:
-    - .mvnw install -B -V
+    - ./mvnw install -B -V
     - ulimit -a && free -m
 
 before_cache:
