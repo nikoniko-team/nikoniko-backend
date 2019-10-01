@@ -16,8 +16,14 @@ before_install:
 install:
 
 
+addons:
+    sonarcloud:
+        organization: "nikoniko-team"
+        token:
+            secure: "${SONAR_TOKEN}"
 script:
     - ./mvnw install -B -V
+    - ./mvnw clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=nikoniko-team_nikoniko-backend
     - ulimit -a && free -m
 
 before_cache:
