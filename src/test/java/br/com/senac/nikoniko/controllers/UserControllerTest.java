@@ -2,6 +2,7 @@ package br.com.senac.nikoniko.controllers;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,4 +25,11 @@ public class UserControllerTest {
     public void tearDown() throws Exception {
     }
 
+    @Test
+    public void save() {
+    }
+
+    @Test
+    public void updateUserEntity() {
+    }
 }
