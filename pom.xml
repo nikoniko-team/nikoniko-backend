@@ -11,7 +11,7 @@
     <groupId>br.com.senac</groupId>
     <artifactId>nikoniko</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>nikoniko</name>
+    <name>nikoniko-backend</name>
     <description>Niko Niko API with Spring Boot</description>
 
     <properties>
