@@ -51,7 +51,7 @@ public class JwtTokenUtil {
     public Date getExpirationDateFromToken(String token) {
         Date expiration;
         try {
-            Claims claims = getClaimsFromToken(token);
+            var claims = getClaimsFromToken(token);
             expiration = claims.getExpiration();
         } catch (Exception e) {
             expiration = null;
@@ -68,7 +68,7 @@ public class JwtTokenUtil {
     public String refreshToken(String token) {
         String refreshedToken;
         try {
-            Claims claims = getClaimsFromToken(token);
+            var claims = getClaimsFromToken(token);
             claims.put(CLAIM_KEY_CREATED, new Date());
             refreshedToken = gerarToken(claims);
         } catch (Exception e) {
