@@ -8,11 +8,15 @@ import lombok.experimental.UtilityClass;
 public class MoodDtoMapper {
 
     public MoodDto convertToDto(Mood entity) {
-        return MoodDto.builder()
-            .id(entity.getId())
-            .name(entity.getName())
-            .url(entity.getUrl())
-            .build();
+        if (entity == null) {
+            return MoodDto.builder().build();
+        } else {
+            return MoodDto.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .url(entity.getUrl())
+                .build();
+        }
     }
 
 }
