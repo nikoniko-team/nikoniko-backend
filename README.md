@@ -10,7 +10,7 @@
 # nikoniko-backend
 
 # SandBox for Testing (Branch master)
-- https://sandbox-nikoniko-backend/api/
+-https://sandbox-nikoniko-backend.herokuapp.com/api/
 
 # Production (Branch production)
 - https://production-nikoniko-backend.herokuapp.com/api/
