@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.With;
 import lombok.experimental.Wither;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,9 +16,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Builder
 @Data
-@Getter
-@Setter
-@Wither
+@With
 public class UserDto {
 
     private Long id;
