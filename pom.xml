@@ -15,8 +15,7 @@
     <description>Niko Niko API with Spring Boot</description>
 
     <properties>
-        <java.version>1.11</java.version>
-        <java-compiler.release>11</java-compiler.release>
+        <java.version>11</java.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <apache-commons-lang3.version>3.9</apache-commons-lang3.version>
         <jacoco.version>0.8.4</jacoco.version>
@@ -52,8 +51,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -152,7 +151,7 @@
                     <parameters>true</parameters>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <release>${java-compiler.release}</release>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
