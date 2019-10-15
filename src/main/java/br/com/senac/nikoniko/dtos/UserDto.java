@@ -15,9 +15,6 @@ import javax.validation.constraints.NotEmpty;
 
 @Builder
 @Data
-@Getter
-@Setter
-@Wither
 public class UserDto {
 
     private Long id;
