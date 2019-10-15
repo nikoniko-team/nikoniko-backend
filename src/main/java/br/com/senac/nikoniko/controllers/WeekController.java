@@ -39,7 +39,7 @@ public class WeekController {
                         .name("Felizão")
                         .url("urlfelizao")
                         .build())
-                    .date(LocalDate.of(2019, 09, 26))
+                    .date(LocalDate.of(2019, 9, 26))
                     .build()
             );
 

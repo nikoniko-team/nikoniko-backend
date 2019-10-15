@@ -9,8 +9,12 @@
 
 # nikoniko-backend
 
-# Homologação
-- https://hom-nikoniko-backend.herokuapp.com/api/
+### SandBox for Testing (Branch master)
+- https://sandbox-nikoniko-backend.herokuapp.com/api/
 
-# Produção
-- https://prod-nikoniko-backend.herokuapp.com/api/
+### Production (Branch production)
+- https://production-nikoniko-backend.herokuapp.com/api/
+
+
+#### Front-end Repository
+- https://github.com/nikoniko-team/nikoniko-front
