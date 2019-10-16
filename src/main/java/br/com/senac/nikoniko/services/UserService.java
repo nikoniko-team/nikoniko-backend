@@ -3,6 +3,7 @@ package br.com.senac.nikoniko.services;
 
 import br.com.senac.nikoniko.entities.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -38,5 +39,12 @@ public interface UserService {
      * @return Optional<User>
      */
     Optional<User> findById(Long id);
+
+    /**
+     * Busca todos os usuários.
+     *
+     * @return List<User>
+     */
+    List<User> findAll();
 
 }

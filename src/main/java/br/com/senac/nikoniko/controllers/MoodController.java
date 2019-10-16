@@ -6,6 +6,7 @@ import br.com.senac.nikoniko.mappers.MoodDtoMapper;
 import br.com.senac.nikoniko.response.Response;
 import br.com.senac.nikoniko.services.MoodService;
 import io.swagger.annotations.Api;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,18 +25,18 @@ public class MoodController {
     }
 
     @GetMapping("/{moodId}")
-    public Response<MoodDto> findById(@PathVariable(value = "moodId") Long id) throws InexistentMoodException {
+    public ResponseEntity<Response<MoodDto>> findById(@PathVariable(value = "moodId") Long id) throws InexistentMoodException {
         Response<MoodDto> response = new Response<>();
 
         moodService.findById(id)
             .ifPresent(mood -> response.setData(MoodDtoMapper.convertToDto(mood)));
 
-        return response;
+        return ResponseEntity.ok(response);
 
     }
 
     @GetMapping
-    public Response<List<MoodDto>> findAll() {
+    public ResponseEntity<Response<List<MoodDto>>> findAll() {
         Response<List<MoodDto>> response = new Response<>();
 
         response.setData(
@@ -44,7 +45,7 @@ public class MoodController {
                 .collect(Collectors.toList())
         );
 
-        return response;
+        return ResponseEntity.ok(response);
     }
 
 }
