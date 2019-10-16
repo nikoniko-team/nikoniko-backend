@@ -7,6 +7,7 @@ import br.com.senac.nikoniko.dtos.WeekDto;
 import br.com.senac.nikoniko.response.Response;
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import java.util.Arrays;
 @RestController
 @Api(value = "Api para CRUD de semanas")
 @RequestMapping("/week")
+@CrossOrigin(origins = "*")
 public class WeekController {
 
     @GetMapping
