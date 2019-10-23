@@ -1,17 +1,14 @@
 package br.com.senac.nikoniko.dtos;
 
-
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Builder
 @Data
-public class MoodDto {
+public class WeekDto {
 
-    private Long id;
-
-    private String name;
-
-    private String url;
+    List<MemberDto> members;
 
 }

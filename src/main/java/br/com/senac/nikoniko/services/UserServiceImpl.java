@@ -3,20 +3,24 @@ package br.com.senac.nikoniko.services;
 
 import br.com.senac.nikoniko.entities.User;
 import br.com.senac.nikoniko.repositories.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
-    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
-
-    @Autowired
     private UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User save(User user) {
@@ -40,6 +44,12 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findById(Long id) {
         log.info("Buscando usuário pelo ID {}", id);
         return Optional.ofNullable(this.userRepository.getOne(id));
+    }
+
+    @Override
+    public List<User> findAll() {
+        log.info("Buscando todos os usuários");
+        return this.userRepository.findAll();
     }
 
 }

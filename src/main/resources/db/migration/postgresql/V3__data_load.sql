@@ -36,3 +36,10 @@ VALUES (nextval('public.user_seq'),
 --Atualizar currentValue das Sequences.
 --mood=12
 --SELECT setval('mood_seq', 12);
+
+INSERT INTO public.mood(id, name, url)
+VALUES (1, 'muito feliz', 'veryhappy.png'),
+       (2, 'feliz', 'happy.png'),
+       (3, 'neutro', 'neutral.png'),
+       (4, 'triste', 'sad.png'),
+       (5, 'muito triste', 'verysad.png');

@@ -4,9 +4,6 @@ package br.com.senac.nikoniko.dtos;
 import br.com.senac.nikoniko.enums.RoleEnum;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Wither;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -15,9 +12,6 @@ import javax.validation.constraints.NotEmpty;
 
 @Builder
 @Data
-@Getter
-@Setter
-@Wither
 public class UserDto {
 
     private Long id;

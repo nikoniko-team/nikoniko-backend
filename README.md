@@ -9,8 +9,12 @@
 
 # nikoniko-backend
 
-# SandBox for Testing (Branch master)
-- https://sandbox-nikoniko-backend/api/
+### SandBox for Testing (Branch master)
+- https://sandbox-nikoniko-backend.herokuapp.com/api/
 
-# Production (Branch production)
+### Production (Branch production)
 - https://production-nikoniko-backend.herokuapp.com/api/
+
+
+#### Front-end Repository
+- https://github.com/nikoniko-team/nikoniko-front

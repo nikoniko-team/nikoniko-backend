@@ -15,8 +15,11 @@ public class MoodServiceImpl implements MoodService {
 
     private static final Logger log = LoggerFactory.getLogger(MoodServiceImpl.class);
 
-    @Autowired
     private MoodRepository moodRepository;
+
+    public MoodServiceImpl(MoodRepository moodRepository) {
+        this.moodRepository = moodRepository;
+    }
 
     @Override
     public Mood save(Mood mood) {
