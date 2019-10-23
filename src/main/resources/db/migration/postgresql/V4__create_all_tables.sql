@@ -10,8 +10,8 @@ CREATE SEQUENCE public.team_seq;
 -- Cria tabela team
 CREATE TABLE public."team"
 (
-    id       bigint                 NOT NULL,
-    name     character varying(255) NOT NULL,
+    id   bigint                 NOT NULL,
+    name character varying(255) NOT NULL,
     CONSTRAINT team_pkey PRIMARY KEY (id)
 );
 
@@ -24,10 +24,10 @@ CREATE SEQUENCE public.team_user_seq;
 -- Cria tabela team_user
 CREATE TABLE public."team_user"
 (
-    id       bigint                 NOT NULL,
-    user_id  bigint NOT NULL references user (id),
-    team_id  bigint NOT NULL references team (id),
-    role     character varying(255) NOT NULL,
+    id      bigint                 NOT NULL,
+    user_id bigint                 NOT NULL references public."user" (id),
+    team_id bigint                 NOT NULL references team (id),
+    role    character varying(255) NOT NULL,
     CONSTRAINT team_user_pkey PRIMARY KEY (id)
 );
 
@@ -40,10 +40,10 @@ CREATE SEQUENCE public.record_seq;
 -- Cria tabela record
 CREATE TABLE public."record"
 (
-    id       bigint                 NOT NULL,
-    team_user_id  bigint NOT NULL references team_user (id),
-    mood_id  bigint NOT NULL references mood (id),
-    date     TIMESTAMPTZ NOT NULL,
+    id           bigint      NOT NULL,
+    team_user_id bigint      NOT NULL references team_user (id),
+    mood_id      bigint      NOT NULL references mood (id),
+    date         TIMESTAMPTZ NOT NULL,
     CONSTRAINT record_pkey PRIMARY KEY (id)
 );
 
@@ -56,8 +56,8 @@ CREATE SEQUENCE public.tag_seq;
 -- Cria tabela tag
 CREATE TABLE public."tag"
 (
-    id       bigint                 NOT NULL,
-    name     character varying(255) NOT NULL,
+    id   bigint                 NOT NULL,
+    name character varying(255) NOT NULL,
     CONSTRAINT tag_pkey PRIMARY KEY (id)
 );
 
@@ -70,10 +70,10 @@ CREATE SEQUENCE public.record_tag_seq;
 -- Cria tabela record_tag
 CREATE TABLE public."record_tag"
 (
-    id       bigint                 NOT NULL,
-    record_id  bigint NOT NULL references record (id),
-    tag_id  bigint NOT NULL references tag (id),
-    comment text,
+    id        bigint NOT NULL,
+    record_id bigint NOT NULL references record (id),
+    tag_id    bigint NOT NULL references tag (id),
+    comment   text,
     CONSTRAINT record_tag_pkey PRIMARY KEY (id)
 );
 
