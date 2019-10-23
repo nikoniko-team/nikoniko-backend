@@ -25,7 +25,7 @@ CREATE SEQUENCE public.team_user_seq;
 CREATE TABLE public."team_user"
 (
     id       bigint                 NOT NULL,
-    user_id  bigint NOT NULL references user (id),
+    user_id  bigint NOT NULL references public."user" (id),
     team_id  bigint NOT NULL references team (id),
     role     character varying(255) NOT NULL,
     CONSTRAINT team_user_pkey PRIMARY KEY (id)
