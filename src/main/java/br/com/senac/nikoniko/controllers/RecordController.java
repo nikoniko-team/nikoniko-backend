@@ -19,9 +19,21 @@ public class RecordController {
         @ApiResponse(code = 400, message = "Requisição inválida, valide os parâmetros de entrada", response = Response.class),
         @ApiResponse(code = 422, message = "Erro semântico na requisição, valide os parâmetros de entrada", response = Response.class),
     })
-    public ResponseEntity save(@ApiParam("ID do time que terá o registro") @PathVariable("teamId") Long teamId,
-                               @ApiParam("ID do usuário que terá o registro") @PathVariable("userId") Long userId,
-                               @ApiParam("Objeto de registro a ser salvo") @RequestBody InRecordDto inRecordDto)  {
+    public ResponseEntity save(@ApiParam(value = "ID do time que terá o registro", required = true) @PathVariable("teamId") Long teamId,
+                               @ApiParam(value = "ID do usuário que terá o registro", required = true) @PathVariable("userId") Long userId,
+                               @ApiParam(value = "Objeto de registro a ser salvo", required = true) @RequestBody InRecordDto inRecordDto)  {
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @PostMapping("/{teamId}")
+    @ApiOperation("Busca todos os registro de humor de um time")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Registro de humor criado", response = void.class),
+        @ApiResponse(code = 400, message = "Requisição inválida, valide os parâmetros de entrada", response = Response.class),
+        @ApiResponse(code = 422, message = "Erro semântico na requisição, valide os parâmetros de entrada", response = Response.class),
+    })
+    public ResponseEntity findAllByTeam(@ApiParam(value = "ID do time para buscar os registros", required = true) @PathVariable("teamId") Long teamId)  {
         return ResponseEntity.noContent().build();
 
     }

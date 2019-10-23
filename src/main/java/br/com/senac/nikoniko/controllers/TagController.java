@@ -36,7 +36,8 @@ public class TagController {
         @ApiResponse(code = 400, message = "Requisição inválida, valide os parâmetros de entrada", response = Response.class),
         @ApiResponse(code = 422, message = "Erro semântico na requisição, valide os parâmetros de entrada", response = Response.class),
     })
-    public ResponseEntity<Response<TagDto>> findById(@PathVariable(value = "moodId") Long id) {
+    @GetMapping("/{tagId}")
+    public ResponseEntity<Response<TagDto>> findById(@PathVariable(value = "tagId", required = true) Long id) {
         Response<TagDto> response = new Response<>();
 
         return ResponseEntity.ok(response);
