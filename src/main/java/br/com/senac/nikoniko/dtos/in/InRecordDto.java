@@ -9,7 +9,7 @@ import java.util.List;
 
 @Builder
 @Data
-public class RecordDto {
+public class InRecordDto {
 
     @JsonProperty("mood_id")
     private Long moodId;

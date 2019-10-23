@@ -1,6 +1,6 @@
 package br.com.senac.nikoniko.controllers;
 
-import br.com.senac.nikoniko.dtos.in.RecordDto;
+import br.com.senac.nikoniko.dtos.in.InRecordDto;
 import br.com.senac.nikoniko.response.Response;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class RecordController {
     })
     public ResponseEntity save(@ApiParam("ID do time que terá o registro") @PathVariable("teamId") Long teamId,
                                @ApiParam("ID do usuário que terá o registro") @PathVariable("userId") Long userId,
-                               @ApiParam("Objeto de registro a ser salvo") @RequestBody RecordDto recordDto)  {
+                               @ApiParam("Objeto de registro a ser salvo") @RequestBody InRecordDto inRecordDto)  {
         return ResponseEntity.noContent().build();
 
     }
