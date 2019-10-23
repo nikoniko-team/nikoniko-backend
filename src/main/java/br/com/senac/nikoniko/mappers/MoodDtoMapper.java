@@ -14,7 +14,7 @@ public class MoodDtoMapper {
             return MoodDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
-                .url(entity.getUrl())
+                .url("https://nikoniko-team.github.io/nikoniko-backend/assets/" + entity.getUrl())
                 .build();
         }
     }
