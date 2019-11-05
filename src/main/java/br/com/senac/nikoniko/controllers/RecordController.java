@@ -2,6 +2,7 @@ package br.com.senac.nikoniko.controllers;
 
 import br.com.senac.nikoniko.dtos.in.InRecordDto;
 import br.com.senac.nikoniko.response.Response;
+import br.com.senac.nikoniko.services.RecordService;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/record")
 @CrossOrigin(origins = "*")
 public class RecordController {
+
+    private final RecordService recordService;
+
+    public RecordController(RecordService recordService) {
+        this.recordService = recordService;
+    }
+
 
     @PostMapping("/{teamId}/{userId}/")
     @ApiOperation("Insere um registro de humor")
@@ -22,8 +30,8 @@ public class RecordController {
     public ResponseEntity save(@ApiParam(value = "ID do time que terá o registro", required = true) @PathVariable("teamId") Long teamId,
                                @ApiParam(value = "ID do usuário que terá o registro", required = true) @PathVariable("userId") Long userId,
                                @ApiParam(value = "Objeto de registro a ser salvo", required = true) @RequestBody InRecordDto inRecordDto)  {
+        recordService.save(inRecordDto, teamId, userId);
         return ResponseEntity.noContent().build();
-
     }
 
     @PostMapping("/{teamId}")
