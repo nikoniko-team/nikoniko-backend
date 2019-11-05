@@ -20,11 +20,15 @@ public class Record {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne(orphanRemoval = true)
+    @ManyToOne
     @JoinColumn(name = "mood_id", referencedColumnName = "id")
     private Mood mood;
 
     @OneToMany(mappedBy = "record")
     private List<RecordTag> recordTagList;
+
+    @ManyToOne
+    @JoinColumn(name = "team_user_id", referencedColumnName = "id")
+    private TeamUser teamUser;
 
 }
