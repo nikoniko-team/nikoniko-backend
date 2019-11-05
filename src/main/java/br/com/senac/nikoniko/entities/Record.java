@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,10 +26,13 @@ public class Record {
     private Mood mood;
 
     @OneToMany(mappedBy = "record")
-    private List<RecordTag> recordTagList;
+    private List<RecordTag> recordTagList = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "team_user_id", referencedColumnName = "id")
     private TeamUser teamUser;
 
+    public void setTags(List<Tag> tags) {
+        tags.forEach(tag -> recordTagList.add(new RecordTag(tag)));
+    }
 }

@@ -30,4 +30,7 @@ public class RecordTag {
     @Column(name = "comment")
     private String comment;
 
+    public RecordTag(Tag tag) {
+        this.tag = tag;
+    }
 }
