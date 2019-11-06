@@ -2,6 +2,7 @@ package br.com.senac.nikoniko.controllers;
 
 import br.com.senac.nikoniko.dtos.in.TagDto;
 import br.com.senac.nikoniko.response.Response;
+import br.com.senac.nikoniko.services.TagService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -17,6 +18,12 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class TagController {
 
+    private TagService tagService;
+
+    public TagController(TagService tagService) {
+        this.tagService = tagService;
+    }
+
     @GetMapping
     @ApiOperation("Busca todas as tags")
     @ApiResponses(value = {
@@ -26,6 +33,8 @@ public class TagController {
     })
     public ResponseEntity<Response<List<TagDto>>> findAll() {
         Response<List<TagDto>> response = new Response<>();
+
+        response.setData(tagService.findAllDto());
 
         return ResponseEntity.ok(response);
     }
