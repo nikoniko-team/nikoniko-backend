@@ -1,11 +1,14 @@
 package br.com.senac.nikoniko.dtos.in;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Builder
+@EqualsAndHashCode
 public class TagDto {
 
     @JsonProperty("id")
