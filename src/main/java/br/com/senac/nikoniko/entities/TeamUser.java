@@ -30,4 +30,10 @@ public class TeamUser {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "team_id", insertable = false, updatable = false)
+    private Long teamId;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
+
 }
