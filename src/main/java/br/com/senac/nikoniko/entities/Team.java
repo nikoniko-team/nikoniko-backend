@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "team_user", schema = "public")
+@Table(name = "team", schema = "public")
 public class Team {
 
     @Id

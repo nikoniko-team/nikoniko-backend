@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -30,4 +31,14 @@ public class TeamUser {
     @Column(name = "role")
     private String role;
 
+    @OneToMany(mappedBy = "teamUser")
+    private List<Record> recordList;
+
+    public Long getUserId() {
+        return user == null ? null : user.getId();
+    }
+
+    public String getUserName() {
+        return user == null ? null : user.getName();
+    }
 }

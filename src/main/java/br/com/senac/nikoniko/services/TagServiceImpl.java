@@ -29,4 +29,9 @@ public class TagServiceImpl implements TagService {
     public List<TagDto> findAllDto() {
         return findAll().stream().map(tag -> modelMapper.map(tag, TagDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public TagDto findById(Long id) {
+        return modelMapper.map(tagRepository.findById(id).orElse(null), TagDto.class);
+    }
 }

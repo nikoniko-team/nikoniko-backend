@@ -49,8 +49,9 @@ public class TagController {
     public ResponseEntity<Response<TagDto>> findById(@PathVariable(value = "tagId", required = true) Long id) {
         Response<TagDto> response = new Response<>();
 
-        return ResponseEntity.ok(response);
+        response.setData(tagService.findById(id));
 
+        return ResponseEntity.ok(response);
     }
 
 }

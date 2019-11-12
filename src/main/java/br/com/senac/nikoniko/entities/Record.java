@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Entity
@@ -31,4 +33,10 @@ public class Record {
     @JoinColumn(name = "team_user_id", referencedColumnName = "id")
     private TeamUser teamUser;
 
+    @Column(name = "date")
+    private OffsetDateTime date;
+
+    public LocalDate getLocalDate() {
+        return date.toLocalDate();
+    }
 }
