@@ -10,4 +10,6 @@ public interface TagService {
     List<Tag> findAll();
 
     List<TagDto> findAllDto();
+
+    TagDto findById(Long id);
 }

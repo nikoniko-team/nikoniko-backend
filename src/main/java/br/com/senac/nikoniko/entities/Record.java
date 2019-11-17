@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,13 @@ public class Record {
     @ManyToOne
     @JoinColumn(name = "team_user_id", referencedColumnName = "id")
     private TeamUser teamUser;
+
+    @Column(name = "date")
+    private OffsetDateTime date;
+
+    public LocalDate getLocalDate() {
+        return date.toLocalDate();
+    }
 
     public void setTags(List<Tag> tags) {
         tags.forEach(tag -> recordTagList.add(new RecordTag(tag)));
