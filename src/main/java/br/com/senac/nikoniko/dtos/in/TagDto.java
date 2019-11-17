@@ -11,8 +11,8 @@ import lombok.*;
 @EqualsAndHashCode
 public class TagDto {
 
-    @JsonProperty("id")
-    private Long id;
+    @JsonProperty("tag_id")
+    private Long tagId;
 
     @JsonProperty("name")
     private String name;

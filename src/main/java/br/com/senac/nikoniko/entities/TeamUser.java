@@ -34,6 +34,12 @@ public class TeamUser {
     @OneToMany(mappedBy = "teamUser")
     private List<Record> recordList;
 
+    @Column(name = "team_id", insertable = false, updatable = false)
+    private Long teamId;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
+
     public Long getUserId() {
         return user == null ? null : user.getId();
     }
@@ -41,4 +47,5 @@ public class TeamUser {
     public String getUserName() {
         return user == null ? null : user.getName();
     }
+
 }
