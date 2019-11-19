@@ -49,7 +49,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindByEmail() {
-        User user = this.userRepository.findByEmail(EMAIL);
+        var user = this.userRepository.findByEmail(EMAIL).orElse(new User());
         assertEquals(EMAIL, user.getEmail());
     }
 

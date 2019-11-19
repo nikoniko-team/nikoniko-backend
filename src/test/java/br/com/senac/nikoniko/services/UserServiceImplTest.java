@@ -32,7 +32,7 @@ public class UserServiceImplTest {
     public void setUp() throws Exception {
         BDDMockito.given(this.userRepository.save(Mockito.any(User.class))).willReturn(new User());
         BDDMockito.given(this.userRepository.getOne(Mockito.anyLong())).willReturn(new User());
-        BDDMockito.given(this.userRepository.findByEmail(Mockito.anyString())).willReturn(new User());
+        BDDMockito.given(this.userRepository.findByEmail(Mockito.anyString())).willReturn(Optional.of(new User()));
         BDDMockito.given(this.userRepository.findByName(Mockito.anyString())).willReturn(new User());
     }
 

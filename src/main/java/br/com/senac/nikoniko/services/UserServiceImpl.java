@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findByEmail(String email) {
         log.info("Buscando usuário pelo email {}", email);
-        return Optional.ofNullable(this.userRepository.findByEmail(email));
+        return this.userRepository.findByEmail(email);
     }
 
     @Override
