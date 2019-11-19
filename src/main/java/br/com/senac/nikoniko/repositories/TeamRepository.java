@@ -15,6 +15,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
         "JOIN tu.recordList r " +
         "WHERE r.date between :startOfWeek and :endOfWeek " +
         "AND t.id = :id")
-    Optional<Team> findFirstByIdAndCurrentWeek(Long id, OffsetDateTime startOfWeek, OffsetDateTime endOfWeek);
+    Optional<Team> findFirstByIdAndCurrentWeek(Long id, String startOfWeek, String endOfWeek);
 
 }
