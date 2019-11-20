@@ -2,13 +2,14 @@ package br.com.senac.nikoniko.controllers;
 
 import br.com.senac.nikoniko.dtos.MoodDto;
 import br.com.senac.nikoniko.exception.InexistentMoodException;
-import br.com.senac.nikoniko.mappers.MoodDtoMapper;
+import br.com.senac.nikoniko.factories.MoodDtoFactory;
 import br.com.senac.nikoniko.response.Response;
 import br.com.senac.nikoniko.services.MoodService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,9 @@ import java.util.stream.Collectors;
 public class MoodController {
 
     private MoodService moodService;
+
+    @Value("${assets.images.url}")
+    private String imagesUrl;
 
     public MoodController(MoodService moodService) {
         this.moodService = moodService;
@@ -38,7 +42,7 @@ public class MoodController {
         Response<MoodDto> response = new Response<>();
 
         moodService.findById(id)
-            .ifPresent(mood -> response.setData(MoodDtoMapper.convertToDto(mood)));
+            .ifPresent(mood -> response.setData(MoodDtoFactory.convertToDto(mood, imagesUrl)));
 
         return ResponseEntity.ok(response);
 
@@ -56,7 +60,7 @@ public class MoodController {
 
         response.setData(
             moodService.findAll().stream()
-                .map(MoodDtoMapper::convertToDto)
+                .map(entity -> MoodDtoFactory.convertToDto(entity, imagesUrl))
                 .collect(Collectors.toList())
         );
 

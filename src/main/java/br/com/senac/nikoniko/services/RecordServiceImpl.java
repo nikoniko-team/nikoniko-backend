@@ -6,6 +6,7 @@ import br.com.senac.nikoniko.entities.TeamUser;
 import br.com.senac.nikoniko.repositories.RecordRepository;
 import br.com.senac.nikoniko.utils.DateUtils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

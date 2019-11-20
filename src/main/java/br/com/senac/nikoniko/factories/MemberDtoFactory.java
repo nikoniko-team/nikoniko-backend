@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class MemberDtoFactory {
 
-    public MemberDto create(TeamUser teamUser) {
+    public MemberDto create(TeamUser teamUser, String imagesUrl) {
         return MemberDto.builder()
             .id(teamUser.getUserId())
             .name(teamUser.getUserName())
             .records(
                 teamUser.getRecordList()
                     .stream()
-                    .map(RecordDtoFactory::create)
+                    .map(record -> RecordDtoFactory.create(record, imagesUrl))
                     .collect(Collectors.toList())
             )
             .build();
