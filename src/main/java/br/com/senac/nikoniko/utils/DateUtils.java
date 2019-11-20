@@ -4,18 +4,20 @@ import lombok.experimental.UtilityClass;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 @UtilityClass
 public class DateUtils {
 
 
-    public LocalDateTime getStartOfWeek() {
-        return LocalDateTime.now().with(DayOfWeek.MONDAY).minusDays(1);
+    public OffsetDateTime getStartOfWeek() {
+        return OffsetDateTime.of(LocalDateTime.now().with(DayOfWeek.MONDAY).minusDays(1), ZoneOffset.UTC);
     }
 
-    public LocalDateTime getEndOfWeek() {
-        return LocalDateTime.now().with(DayOfWeek.SATURDAY);
+    public OffsetDateTime getEndOfWeek() {
+        return OffsetDateTime.of(LocalDateTime.now().with(DayOfWeek.SATURDAY), ZoneOffset.UTC);
     }
 
     public String getStartOfWeekAsString() {

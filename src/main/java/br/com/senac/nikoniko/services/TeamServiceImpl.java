@@ -16,19 +16,25 @@ import java.util.stream.Collectors;
 public class TeamServiceImpl implements TeamService {
 
     private final TeamRepository teamRepository;
+    private final RecordService recordService;
 
-    public TeamServiceImpl(TeamRepository teamRepository) {
+
+
+    public TeamServiceImpl(TeamRepository teamRepository, RecordService recordService) {
         this.teamRepository = teamRepository;
+        this.recordService = recordService;
     }
 
     @Override
     public List<MemberDto> findAllUsersByTeamIdAndCurrentWeek(Long id) {
-        var team = teamRepository.findFirstByIdAndCurrentWeek(id, DateUtils.getStartOfWeekAsString(), DateUtils.getEndOfWeekAsString())
-            .orElseGet(Team::new);
+        var team = teamRepository.findFirstById(id).orElseGet(Team::new);
         var userList = team.getTeamUserList() == null ? new ArrayList<TeamUser>() : team.getTeamUserList();
 
         return userList.stream()
-            .map(MemberDtoFactory::create)
+            .map(teamUser -> {
+                teamUser.setRecordList(recordService.findCurrentWeekByTeamUser(teamUser.getId()));
+                return MemberDtoFactory.create(teamUser);
+            })
             .collect(Collectors.toList());
     }
 }

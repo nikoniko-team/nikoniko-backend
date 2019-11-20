@@ -4,8 +4,11 @@ import br.com.senac.nikoniko.dtos.in.InRecordDto;
 import br.com.senac.nikoniko.entities.Record;
 import br.com.senac.nikoniko.entities.TeamUser;
 import br.com.senac.nikoniko.repositories.RecordRepository;
+import br.com.senac.nikoniko.utils.DateUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RecordServiceImpl implements RecordService {
@@ -27,6 +30,11 @@ public class RecordServiceImpl implements RecordService {
         record.setTeamUser(teamUser);
 
         recordRepository.save(record);
+    }
+
+    @Override
+    public List<Record> findCurrentWeekByTeamUser(Long id) {
+        return recordRepository.findCurrentWeekByTeamUserId(id, DateUtils.getStartOfWeek(), DateUtils.getEndOfWeek());
     }
 
 }
