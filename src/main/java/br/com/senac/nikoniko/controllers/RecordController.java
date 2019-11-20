@@ -24,6 +24,7 @@ public class RecordController {
     }
 
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/{teamId}/{userId}/")
     @ApiOperation("Insere um registro de humor")
     @ApiResponses(value = {

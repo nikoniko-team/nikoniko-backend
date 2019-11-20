@@ -28,6 +28,8 @@ public class RecordServiceImpl implements RecordService {
             .addMapping(InRecordDto::getTags, Record::setTags)
             .map(inRecordDto);
 
+        record.setDate(DateUtils.localDateToOffset(inRecordDto.getDate()));
+
         record.setTeamUser(teamUser);
 
         recordRepository.save(record);
