@@ -15,4 +15,5 @@ public interface RecordRepository extends JpaRepository<Record, Long> {
         "WHERE t.id = :teamUserId " +
         "AND r.date BETWEEN :startDate AND :endDate")
     List<Record> findCurrentWeekByTeamUserId(Long teamUserId, OffsetDateTime startDate, OffsetDateTime endDate);
+
 }
