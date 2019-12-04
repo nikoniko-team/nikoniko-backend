@@ -51,9 +51,4 @@ public class MoodServiceImpl implements MoodService {
         return moodRepository.findAll();
     }
 
-    @Override
-    public List<Mood> findAllByTeamAndCurrentMonth(Long teamId) {
-        return moodRepository.findCurrentMonthByTeamId(teamId, DateUtils.getStartOfMonth(), DateUtils.getEndOfMonth());
-    }
-
 }

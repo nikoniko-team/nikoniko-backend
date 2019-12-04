@@ -47,10 +47,4 @@ public interface MoodService {
      */
     List<Mood> findAll();
 
-    /**
-     * Busca e retorna todos os moods do mês atual para um time.
-     *
-     * @return List<MoodDto>
-     */
-    List<Mood> findAllByTeamAndCurrentMonth(Long teamId);
 }
