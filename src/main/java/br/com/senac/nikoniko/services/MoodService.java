@@ -1,5 +1,6 @@
 package br.com.senac.nikoniko.services;
 
+import br.com.senac.nikoniko.dtos.MoodDto;
 import br.com.senac.nikoniko.entities.Mood;
 
 import java.util.List;
@@ -39,10 +40,11 @@ public interface MoodService {
      */
     Optional<Mood> findById(Long id);
 
-    /**
+    /**B
      * Busca e retorna um lista de mood por ID.
      *
      * @return List<Mood>
      */
     List<Mood> findAll();
+
 }
