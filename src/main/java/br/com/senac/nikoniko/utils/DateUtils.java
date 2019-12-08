@@ -37,4 +37,5 @@ public class DateUtils {
     public static OffsetDateTime localDateToOffset(LocalDate date) {
         return OffsetDateTime.of(date, LocalTime.now(), ZoneOffset.UTC);
     }
+
 }

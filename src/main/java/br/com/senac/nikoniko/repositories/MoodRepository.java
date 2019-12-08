@@ -26,5 +26,5 @@ public interface MoodRepository extends JpaRepository<Mood, Long> {
         "WHERE tu.teamId = :teamId " +
         "AND r.date BETWEEN :startDate AND :endDate " +
         "GROUP BY m.name")
-    List<EntryDto> findCurrentMonthByTeamId(Long teamId, OffsetDateTime startDate, OffsetDateTime endDate);
+    List<EntryDto> findPeriodByTeamId(Long teamId, OffsetDateTime startDate, OffsetDateTime endDate);
 }

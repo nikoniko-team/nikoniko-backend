@@ -1,6 +1,7 @@
 package br.com.senac.nikoniko.controllers;
 
 import br.com.senac.nikoniko.dtos.EntryDto;
+import br.com.senac.nikoniko.dtos.TagReportDto;
 import br.com.senac.nikoniko.response.Response;
 import br.com.senac.nikoniko.services.ReportService;
 import io.swagger.annotations.Api;
@@ -26,6 +27,15 @@ public class ReportController {
         var response = new Response<List<EntryDto>>();
 
         response.setData(reportService.getMonthlyReport(teamId));
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/tags")
+    public ResponseEntity<Response<List<TagReportDto>>> getTagCloud() {
+        var response = new Response<List<TagReportDto>>();
+
+        response.setData(reportService.getTagCloud());
 
         return ResponseEntity.ok(response);
     }
