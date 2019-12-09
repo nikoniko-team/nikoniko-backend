@@ -42,6 +42,8 @@ public class Record {
     }
 
     public void setTags(List<Tag> tags) {
-        tags.forEach(tag -> recordTagList.add(new RecordTag(tag)));
+        if (tags != null) {
+            tags.forEach(tag -> recordTagList.add(new RecordTag(tag)));
+        }
     }
 }
