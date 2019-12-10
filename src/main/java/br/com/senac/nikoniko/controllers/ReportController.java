@@ -1,6 +1,7 @@
 package br.com.senac.nikoniko.controllers;
 
 import br.com.senac.nikoniko.dtos.EntryDto;
+import br.com.senac.nikoniko.dtos.QuarterDto;
 import br.com.senac.nikoniko.dtos.TagReportDto;
 import br.com.senac.nikoniko.response.Response;
 import br.com.senac.nikoniko.services.ReportService;
@@ -27,6 +28,15 @@ public class ReportController {
         var response = new Response<List<EntryDto>>();
 
         response.setData(reportService.getMonthlyReport(teamId));
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{teamId}/quarter")
+    public ResponseEntity<Response<List<QuarterDto>>> getQuarterReport(@PathVariable("teamId") Long teamId) {
+        var response = new Response<List<QuarterDto>>();
+
+        response.setData(reportService.getQuarterReport(teamId));
 
         return ResponseEntity.ok(response);
     }
