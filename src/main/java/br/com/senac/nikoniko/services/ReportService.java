@@ -12,5 +12,5 @@ public interface ReportService {
 
     List<QuarterDto> getQuarterReport(Long teamId);
 
-    List<TagReportDto> getTagCloud();
+    List<TagReportDto> getTagCloud(Long teamId);
 }

@@ -31,11 +31,11 @@ public class ReportController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/tags")
-    public ResponseEntity<Response<List<TagReportDto>>> getTagCloud() {
+    @GetMapping("/{teamId}/tags")
+    public ResponseEntity<Response<List<TagReportDto>>> getTagCloud(@PathVariable("teamId") Long teamId) {
         var response = new Response<List<TagReportDto>>();
 
-        response.setData(reportService.getTagCloud());
+        response.setData(reportService.getTagCloud(teamId));
 
         return ResponseEntity.ok(response);
     }

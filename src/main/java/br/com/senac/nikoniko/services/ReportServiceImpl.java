@@ -32,8 +32,8 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public List<TagReportDto> getTagCloud() {
-        return recordTagRepository.findTagUsage();
+    public List<TagReportDto> getTagCloud(Long teamId) {
+        return recordTagRepository.findTagUsage(teamId);
     }
 
 }
