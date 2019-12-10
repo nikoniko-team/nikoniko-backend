@@ -8,7 +8,11 @@ import br.com.senac.nikoniko.repositories.RecordTagRepository;
 import br.com.senac.nikoniko.utils.DateUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.Month;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -28,7 +32,16 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public List<QuarterDto> getQuarterReport(Long teamId) {
-        return null;
+        return DateUtils.getLastQuarterMonths().stream()
+            .sorted()
+            .map(month -> {
+                var quarterDto = new QuarterDto();
+                quarterDto.setMonth(Month.of(month).getDisplayName(TextStyle.FULL, Locale.US));
+                quarterDto.setOrder(month);
+                quarterDto.setEntries(moodRepository.findPeriodByTeamIdAndMonth(teamId, month));
+                return quarterDto;
+            })
+            .collect(Collectors.toList());
     }
 
     @Override

@@ -5,6 +5,8 @@ import lombok.experimental.UtilityClass;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.List;
 
 @UtilityClass
 public class DateUtils {
@@ -37,5 +39,17 @@ public class DateUtils {
     public static OffsetDateTime localDateToOffset(LocalDate date) {
         return OffsetDateTime.of(date, LocalTime.now(), ZoneOffset.UTC);
     }
+
+    public static List<Integer> getLastQuarterMonths() {
+        var list = new ArrayList<Integer>();
+
+        for (long i = 0; i < 3; i++) {
+            list.add(Integer.valueOf(LocalDate.now().minusMonths(i).format(DateTimeFormatter.ofPattern("MM"))));
+        }
+
+        return list;
+    }
+
+
 
 }

@@ -27,4 +27,13 @@ public interface MoodRepository extends JpaRepository<Mood, Long> {
         "AND r.date BETWEEN :startDate AND :endDate " +
         "GROUP BY m.name")
     List<EntryDto> findPeriodByTeamId(Long teamId, OffsetDateTime startDate, OffsetDateTime endDate);
+
+    @Query("SELECT new br.com.senac.nikoniko.dtos.EntryDto(m.name, count(r.mood.id)) " +
+        "FROM Mood m " +
+        "JOIN m.recordList r " +
+        "JOIN r.teamUser tu " +
+        "WHERE tu.teamId = :teamId " +
+        "AND month(r.date) = :month " +
+        "GROUP BY m.name")
+    List<EntryDto> findPeriodByTeamIdAndMonth(Long teamId, Integer month);
 }

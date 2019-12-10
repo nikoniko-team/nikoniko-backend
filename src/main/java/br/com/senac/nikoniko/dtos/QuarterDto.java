@@ -12,7 +12,7 @@ import java.util.List;
 public class QuarterDto {
 
     private String month;
-    private Long order;
+    private Integer order;
     private List<EntryDto> entries;
 
 }
