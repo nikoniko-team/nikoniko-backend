@@ -22,7 +22,7 @@ public class TeamController {
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping("/{userId}")
+    @GetMapping("/{userId}")
     @ApiOperation("Busca todos os times que um usuário participa")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Time localizado", response = void.class),
