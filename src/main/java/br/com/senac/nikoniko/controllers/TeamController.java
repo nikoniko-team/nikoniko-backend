@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @Api(value = "Api para CRUD de registros do time")
-@RequestMapping("/record")
+@RequestMapping("/team")
 @CrossOrigin(origins = "*")
 public class TeamController {
 
